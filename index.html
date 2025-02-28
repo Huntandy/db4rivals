@@ -183,16 +183,19 @@
                 });
             });
             $(".dropdown-item").click(function() {
-                currentPosition = $(this).data("value");
-                $("#dropdownMenuButton").text($(this).text());
+            currentPosition = $(this).data("value");
+            $("#dropdownMenuButton").text($(this).text());
                 filterTableByPosition(currentPosition);
                 
-                // Show or hide control buttons based on position selection
+                // Show or hide ONLY the control buttons based on position selection
                 if (currentPosition === "All") {
-                    $(".text-center.mb-3").show(); // Show the buttons
+                    $("#addRow, #editToggle").parent().show(); // Show only the control buttons container
                 } else {
-                    $(".text-center.mb-3").hide(); // Hide the buttons
+                    $("#addRow, #editToggle").parent().hide(); // Hide only the control buttons container
                 }
+                
+                // Keep the search box visible in all cases
+                $("#searchBoxContainer").show();
             });
         });
     </script>
